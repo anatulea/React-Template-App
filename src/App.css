@@ -5,5 +5,6 @@
   width:400px;
   margin:0 auto;
   border: 1px solid rgb(209, 207, 207);
-  padding:20px
+  padding:20px;
+  border-radius: 10px;
 }

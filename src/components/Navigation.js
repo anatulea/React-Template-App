@@ -24,12 +24,14 @@ const Navigation = () => {
         active={activeItem === "messages"}
         onClick={handleItemClick}
       />
-      {/* <Link></Link> */}
-      <Menu.Item
-        name="friends"
-        active={activeItem === "friends"}
-        onClick={handleItemClick}
-      />
+      <Link to="/posts">
+        <Menu.Item
+          name="posts"
+          active={activeItem === "posts"}
+          onClick={handleItemClick}
+        />
+      </Link>
+
       <Menu.Menu position="right">
         <Link to="/login">
           <Menu.Item
@@ -39,7 +41,7 @@ const Navigation = () => {
           />
         </Link>
 
-        <Link to="register">
+        <Link to="/register">
           <Menu.Item
             name="Register"
             active={activeItem === "Register"}
