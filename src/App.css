@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  
+  
 }
 .form{
   width:400px;
@@ -7,4 +9,26 @@
   border: 1px solid rgb(209, 207, 207);
   padding:20px;
   border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+}
+body{
+  background-image: url('./background.jpg');
+  background-color: rgba(204, 204, 204, 0.3);
+  background-position: center;
+  background-repeat: repeat;
+  background-size: cover;
+  position: relative;
+  background-blend-mode: lighten;
+}
+.home-page h1{
+  color:white;
+  font-size: 40px;
+}
+.home-page h3{
+  color:white;
+  font-size: 20px;
+}
+.add-post-input{
+  width:auto;
+  margin: 7px;
 }

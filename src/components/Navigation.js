@@ -18,12 +18,14 @@ const Navigation = () => {
         />
       </Link>
 
-      {/* <Link></Link> */}
-      <Menu.Item
-        name="messages"
-        active={activeItem === "messages"}
-        onClick={handleItemClick}
-      />
+      <Link to="/dashboard">
+        <Menu.Item
+          name="dashboard"
+          active={activeItem === "dashboard"}
+          onClick={handleItemClick}
+        />
+      </Link>
+
       <Link to="/posts">
         <Menu.Item
           name="posts"
