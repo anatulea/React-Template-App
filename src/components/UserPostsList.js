@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Container, Card } from "semantic-ui-react";
-// import { UserContext } from "../context/userContext";
+import { UserContext } from "../context/userContext";
 import Post from "./Post";
 
-const PostsList = ({ posts }) => {
-  // const { posts } = useContext(UserContext);
+const UserPostsList = () => {
+  const { posts } = useContext(UserContext);
   // console.log(`posts in postList`, posts);
   return (
     <Container>
@@ -16,4 +16,4 @@ const PostsList = ({ posts }) => {
     </Container>
   );
 };
-export default PostsList;
+export default UserPostsList;

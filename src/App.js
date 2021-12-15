@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 
@@ -8,11 +8,17 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import PostsList from "./components/PostsList";
 import Dashboard from "./components/Dashboard";
-import posts from "./data";
 import EditPost from "./components/EditPost";
 
+import { getPosts } from "./services/posts";
+
 function App() {
-  console.log(`posts`, posts);
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    getPosts().then((posts) => setPosts(posts));
+  }, []);
+
   return (
     <div className="App">
       <Navigation />
