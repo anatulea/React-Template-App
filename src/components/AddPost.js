@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { Form, TextArea, Button } from "semantic-ui-react";
 import { createPost } from "../services/posts";
 import { UserContext } from "../context/userContext";
+import { PostsContext } from "../context/postsContext";
 
 const initialState = {
   title: "",
@@ -9,12 +10,13 @@ const initialState = {
   description: "",
   author: "second Author",
   likes_count: 0,
-  user_id: 1,
+  user_id: 7,
 };
 
 const AddPost = () => {
   const [newPost, setNewPost] = useState(initialState);
-  const { posts, setPosts } = useContext(UserContext);
+  const { userPosts, setUserPosts } = useContext(UserContext);
+  const { posts, setPosts } = useContext(PostsContext);
   // console.log(`newPost in postList`, newPost);
 
   const handleInputChanges = (e) => {
@@ -29,6 +31,7 @@ const AddPost = () => {
 
     createPost(newPost)
       .then((res) => {
+        setUserPosts([res, ...userPosts]);
         setPosts([res, ...posts]);
         setNewPost(initialState);
       })

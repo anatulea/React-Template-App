@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Container, Card } from "semantic-ui-react";
-// import { UserContext } from "../context/userContext";
+import { PostsContext } from "../context/postsContext";
 import Post from "./Post";
 
-const PostsList = ({ posts }) => {
-  // const { posts } = useContext(UserContext);
-  // console.log(`posts in postList`, posts);
+const PostsList = () => {
+  const { posts } = useContext(PostsContext);
+  console.log(`posts in post list`, posts);
   return (
     <Container>
       <Card.Group itemsPerRow={1}>

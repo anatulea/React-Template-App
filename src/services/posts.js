@@ -27,3 +27,17 @@ export const createPost = (body) => {
 export const deletePostById = (post_id) => {
   return axios.delete(`${postBaseURl}${post_id}`);
 };
+
+export const getPostById = (post_id) => {
+  return axios
+    .get(`${postBaseURl}${post_id}`)
+    .then((res) => res.data)
+    .catch((err) => console.log(err));
+};
+
+export const updatePost = (body, post_id) => {
+  return axios
+    .put(`${postBaseURl}${post_id}`, body)
+    .then((res) => res.data)
+    .catch((err) => console.log(err));
+};

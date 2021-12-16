@@ -33,6 +33,13 @@ const Navigation = () => {
           onClick={handleItemClick}
         />
       </Link>
+      <Link to="/products">
+        <Menu.Item
+          name="products"
+          active={activeItem === "products"}
+          onClick={handleItemClick}
+        />
+      </Link>
 
       <Menu.Menu position="right">
         <Link to="/login">

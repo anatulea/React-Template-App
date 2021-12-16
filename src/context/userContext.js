@@ -1,4 +1,4 @@
 import { createContext } from "react";
 export const UserContext = createContext({
-  posts: [],
+  userPosts: [],
 });

@@ -1,16 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Card, Icon, Button } from "semantic-ui-react";
-import { Link } from "react-router-dom";
-import { deletePostById } from "../services/posts";
-import { UserContext } from "../context/userContext";
 
 const Post = ({ post }) => {
-  const { posts, setPosts } = useContext(UserContext);
-
-  const deletePost = () => {
-    deletePostById(post.id);
-    setPosts(posts.filter((item) => item.id !== post.id));
-  };
   return (
     <Card key={post.id} data-index={post.i}>
       <Card.Content textAlign="left">
@@ -23,8 +14,7 @@ const Post = ({ post }) => {
       </Card.Content>
       <Card.Content extra textAlign="left">
         <Icon name="like" />
-        {post.likes_count} likes <Link to="/edit-post">Edit</Link>{" "}
-        <Button onClick={deletePost}>Delete</Button>
+        {post.likes_count} likes
       </Card.Content>
     </Card>
   );

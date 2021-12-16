@@ -9,8 +9,10 @@ import Login from "./components/Login";
 import PostsList from "./components/PostsList";
 import Dashboard from "./components/Dashboard";
 import EditPost from "./components/EditPost";
+import ProductList from "./components/ProductList";
 
 import { getPosts } from "./services/posts";
+import { PostsContext } from "./context/postsContext";
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -22,14 +24,17 @@ function App() {
   return (
     <div className="App">
       <Navigation />
-      <Routes>
-        <Route exact path="/edit-post" element={<EditPost />} />
-        <Route exact path="/dashboard" element={<Dashboard />} />
-        <Route exact path="/posts" element={<PostsList posts={posts} />} />
-        <Route exact path="/register" element={<Register />} />
-        <Route exact path="/login" element={<Login />} />
-        <Route exact path="/" element={<Home />} />
-      </Routes>
+      <PostsContext.Provider value={{ posts, setPosts }}>
+        <Routes>
+          <Route path="/products" element={<ProductList />} />
+          <Route path="/edit-post/:id" element={<EditPost />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/posts" element={<PostsList />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </PostsContext.Provider>
     </div>
   );
 }

@@ -6,14 +6,14 @@ import UserPostsList from "./UserPostsList";
 import { UserContext } from "../context/userContext";
 
 const Dashboard = () => {
-  const [posts, setPosts] = useState([]);
+  const [userPosts, setUserPosts] = useState([]);
 
   useEffect(() => {
-    getPostsByUserId(1).then((posts) => setPosts(posts));
+    getPostsByUserId(7).then((posts) => setUserPosts(posts));
   }, []);
 
   return (
-    <UserContext.Provider value={{ posts, setPosts }}>
+    <UserContext.Provider value={{ userPosts, setUserPosts }}>
       <Container>
         <AddPost />
         <br />
